@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!-- urutan parent omenur, omenuc, omenua -->
+        <!-- (omenur) This Menu Item will appear in the Upper bar, that's why It needs NO parent or action, Menu utama dengan nama Training Odoo -->
+        <menuitem id="Training_menu_root" name="Training odoo" sequence="1" web_icon="cdn_training,static/description/icon.png"/>
+
+        <!-- (omenuc) This Menu Item Must have a parent, menu categ dengan nama pengaturan dengan parent Training Odoo -->
+        <menuitem id="pengaturan_menu_categ" name="Pengaturan" parent="Training_menu_root" sequence="10"/>
+
+        <!-- (omnuc) This Menu Item Must have a parent, menu categ dengan nama Training dengan parent Training Odoo -->
+        <menuitem id="training_menu_categ" name="Training" parent="Training_menu_root" sequence="20"/>
+
+        <!-- (omenua) This Menu Item Must have a parent, menu categ dengan nama Wilayah dengan parent pengaturan -->
+        <menuitem id="wilayah_menu_categ" name="Wilayah" parent="pengaturan_menu_categ" sequence="30"/>
+        
+    
+    </data>
+    
+
+</odoo>

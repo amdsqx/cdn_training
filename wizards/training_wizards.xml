@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- training.wizards form view -->
+        <record id="wizards_training_view_form" model="ir.ui.view">
+            <field name="name">wizards.training.view.form</field>
+            <field name="model">wizards.training</field>
+            <field name="arch" type="xml">
+                <form string="">
+                     <group>
+                         <!-- Add your fields here -->
+                         <field name="session_id"/>
+                         <field name="peserta_ids"/>
+                     </group>
+                     <footer>
+                         <button string="Tambah Peserta" name="tambah_peserta" type="object" confirm="Apakah Anda yakin akan menambahkan Peserta pada Sesi ini?" class="btn-primary"/>
+                         <button string="Batal" class="btn-secondary" special="cancel"/>
+                     </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- wizards.training action window -->
+        <record id="wizards_training_action" model="ir.actions.act_window">
+            <field name="name">Tambah Peserta</field>
+            <field name="res_model">wizards.training</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref='model_training_session'/>
+            <field name="binding_view_types">form</field>
+        </record>
+        
+        <!-- wizards.training form view -->
+        <record id="wizards_training_view_form_list" model="ir.ui.view">
+            <field name="name">wizards.training.view.form.list</field>
+            <field name="model">wizards.training</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group>
+                        <field name="session_ids" widget="many2many_tags" options="{'no_create_edit' :True}"/>
+                        <field name="peserta_ids"/>
+                    </group>
+                    <footer>
+                        <button string="Tambah Peserta" name="tambah_banyak_peserta" type="object" confirm="Apakah Anda yakin akan menambahkan Banyak Peserta pada Banyak Sesi ini?" class="btn-primary"/>
+                        <button string="Batal" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- wizards.training action window -->
+        <record id="wizards_training_list_action" model="ir.actions.act_window">
+            <field name="name">Tambah Banyak Peserta</field>
+            <field name="res_model">wizards.training</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wizards_training_view_form_list"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref='model_training_session'/>
+            <field name="binding_view_types">list</field>
+        </record>
+    
+    </data>
+    
+</odoo>

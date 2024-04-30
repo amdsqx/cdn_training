@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!-- ref.desa tree view -->
+        <!-- (otree) untuk menampilkan tabel data desa -->
+        <record id="ref_desa_view_tree" model="ir.ui.view">
+            <field name="name">ref.desa.view.tree</field>
+            <field name="model">ref.desa</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <!-- (ofiel) untuk menampilkan isi tabel -->
+                    <field name="name"/>
+                    <field name="kode"/>
+                    <field name="singkatan"/>
+                    <field name="keterangan"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ref_desa form view -->
+        <!-- (oform) untuk menampilkan form tabel/isi tabel desa -->
+        <record id="ref_desa_view_form" model="ir.ui.view">
+            <field name="name">ref_desa.view.form</field>
+            <field name="model">ref.desa</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <!-- (ofiel) untuk menampilkan isi dalam form -->
+                            <field name="name"/>
+                            <field name="kode"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ref.provonsi action window -->
+        <!-- (oact) untuk menampilkan menu -->
+        <record id="ref_desa_action" model="ir.actions.act_window">
+            <field name="name">ref.desa.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ref.desa</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>   
+
+        <!-- This Menu Item must have a parent and an action -->
+        <!-- untuk menampilkan dan mengatur letak menu -->
+        <menuitem id="desa_menu_act" name="Data desa" parent="wilayah_menu_categ" action="ref_desa_action" sequence="40"/>
+        
+
+    
+        
+    
+    </data>
+    
+
+</odoo>
